@@ -1,0 +1,201 @@
+// Custom.scss
+// Option B: Include parts of Bootstrap
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+$green:  #A1E92B;
+$purple: #902CD9;
+$black:  #000000;
+
+$body-color: $black;
+
+$spacer: 0.25rem; // 4px
+$spacers: (
+  0:	0, // 0px	
+  1:	$spacer, // 4px
+  2:	$spacer * 2, // 8px
+  3:  $spacer * 3, // 12px
+  4:	$spacer * 4, // 16px
+  6:	$spacer * 6, // 24px
+  8:	$spacer * 8, // 32px
+  12:	$spacer * 12, // 48px
+  14:	$spacer * 14, // 56px
+  16:	$spacer * 16, // 64px
+  24:	$spacer * 24, // 96px
+  32:	$spacer * 32, // 128px
+  36:	$spacer * 36, // 144px
+  40:	$spacer * 40,	// 160px
+  48:	$spacer * 48, // 192px
+  56:	$spacer * 56, // 224px
+  60:	$spacer * 60, // 240px
+  64:	$spacer * 64, // 256px
+  80:	$spacer * 80, // 320px
+);
+
+$font-family-sans-serif: Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-poppins: Poppins, $font-family-sans-serif;
+
+$headings-font-family: $font-poppins;
+$display-font-family:  $font-poppins;
+$display-font-weight:  500;
+
+$input-btn-font-family:  $font-poppins;
+$input-btn-font-size:    .875rem;
+$input-btn-font-size-sm: .875rem;
+$input-btn-font-size-lg: 1rem;
+$input-btn-padding-y:    .625rem;
+$input-btn-padding-x:    1.375rem;
+$input-btn-padding-y-sm: .375rem;
+$input-btn-padding-x-sm: .875rem;
+$input-btn-padding-y-lg: .75rem;
+$input-btn-padding-x-lg: 1.625rem;
+
+$btn-border-radius:    50rem;
+$btn-border-radius-sm: 50rem;
+$btn-border-radius-lg: 50rem;
+
+$navbar-padding-y:             1.5rem;
+$navbar-brand-margin-end:      2rem;
+$navbar-brand-padding-y:       0;
+$navbar-nav-link-padding-x:    0;
+$navbar-toggler-padding-y:     0;
+$navbar-toggler-padding-x:     0;
+$navbar-toggler-border-radius: 0;
+$navbar-toggler-focus-width:   0;
+$nav-link-font-family:         $font-poppins;
+$nav-link-font-weight:         500;
+
+$offcanvas-horizontal-width: 20rem;
+
+// 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+
+// 4. Include any default map overrides here
+$custom-theme-colors: (
+  'green':  $green,
+  'purple': $purple,
+  'black':  $black
+);
+$theme-colors: map-merge($theme-colors, $custom-theme-colors);
+
+$custom-position-values: (
+  initial: initial,
+);
+$position-values: map-merge($position-values, $custom-position-values);
+
+// 5. Include remainder of required parts
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
+
+// 6. Optionally include any other parts as needed
+@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/dropdown";
+@import "bootstrap/scss/button-group";
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/accordion";
+@import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/pagination";
+@import "bootstrap/scss/badge";
+@import "bootstrap/scss/alert";
+@import "bootstrap/scss/progress";
+@import "bootstrap/scss/list-group";
+@import "bootstrap/scss/close";
+@import "bootstrap/scss/toasts";
+@import "bootstrap/scss/modal";
+@import "bootstrap/scss/tooltip";
+@import "bootstrap/scss/popover";
+@import "bootstrap/scss/carousel";
+@import "bootstrap/scss/spinners";
+@import "bootstrap/scss/offcanvas";
+@import "bootstrap/scss/placeholders";
+@import "bootstrap/scss/helpers";
+
+$utilities: map-merge(
+  $utilities, (
+    "position": map-merge(
+      map-get($utilities, "position"),
+      ( responsive: true ),
+    ),
+    "top": map-merge(
+      map-get($utilities, "top"),
+      ( responsive: true ),
+    ),
+    "bottom": map-merge(
+      map-get($utilities, "bottom"),
+      ( responsive: true ),
+    ),
+    "start": map-merge(
+      map-get($utilities, "start"),
+      ( responsive: true ),
+    ),
+    "end": map-merge(
+      map-get($utilities, "end"),
+      ( responsive: true ),
+    ),
+    "translate-middle": map-merge(
+      map-get($utilities, "translate-middle"),
+      ( responsive: true ),
+    )
+  )
+);
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "bootstrap/scss/utilities/api";
+
+// 8. Add additional custom code here
+.material-symbols-sharp {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+}
+
+.nav-link {
+  font-family: $nav-link-font-family;
+  position: relative;
+}
+
+.main-banner {
+  min-height: 100svh;
+}
+
+@include media-breakpoint-up(md) {
+  .w-md-22rem {
+    width: 22rem !important;
+  }
+
+  .main-banner {
+    min-height: min(100svh, 36rem);
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .nav-link:hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: $black;
+  }
+
+  .w-lg-36rem {
+    width: 36rem !important;
+  }
+
+  .main-banner {
+    min-height: min(100svh, 48rem);
+  }
+}
