@@ -1,6 +1,6 @@
 # bs-chat-app
 
-Chat app landing page
+Chat app landing page built with BootstrapCSS
 
 [Preview](https://indrasukma.github.io/bs-chat-app/)
 
